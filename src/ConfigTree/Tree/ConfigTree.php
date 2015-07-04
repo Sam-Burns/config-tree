@@ -20,7 +20,8 @@ class ConfigTree
      * @throws FileNotReadable
      * @throws FileFormatNotParsable
      *
-     * @param string $pathToFile
+     * @param string               $pathToFile
+     * @param ArrayableFileFactory $arrayableFileFactory
      * @return ConfigTree
      */
     public static function constructFromFile($pathToFile, ArrayableFileFactory $arrayableFileFactory = null)
