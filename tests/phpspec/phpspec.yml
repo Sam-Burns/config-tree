@@ -1,8 +1,7 @@
 suites:
 
     Main:
-        namespace: Xxxxxx
-        spec_prefix: XxxxxxSpec
+        namespace: ConfigTree
+        spec_prefix: ConfigTree\Spec
         src_path: src/
-        spec_path:  tests/phpspec/
-        psr4_prefix: Xxxxxx
+        spec_path: tests/phpspec/

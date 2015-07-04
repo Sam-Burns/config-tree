@@ -1,0 +1,9 @@
+{
+  "parameters": {
+    "node1": {
+      "node2": {
+        "node3": "value3.2"
+      }
+    }
+  }
+}
