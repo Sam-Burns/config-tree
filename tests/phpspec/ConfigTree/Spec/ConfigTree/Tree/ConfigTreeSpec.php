@@ -41,13 +41,13 @@ class ConfigTreeSpec extends ObjectBehavior
         $this->getSettingFromPath('node1/node2')->shouldBe('value');
     }
 
-//    function it_can_throw_an_exception_if_config_option_not_set()
-//    {
-//        $this
-//            ->shouldThrow('\ConfigTree\Exception\ConfigTreeParamNotSet')
-//            ->during('getSettingFromPath', ['setting/not/set/in/file'])
-//        ;
-//    }
+    function it_can_throw_an_exception_if_config_option_not_set()
+    {
+        $this
+            ->shouldThrow('\ConfigTree\Exception\ConfigTreeParamNotSet')
+            ->during('getSettingFromPath', ['setting/not/set/in/file'])
+        ;
+    }
 //
 //    function it_can_retrieve_subtrees()
 //    {
