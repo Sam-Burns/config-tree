@@ -3,7 +3,7 @@ namespace ConfigTree\Builder;
 
 use ConfigTree\Tree\ConfigTree;
 
-class ConfigBuilder
+class ConfigTreeBuilder
 {
     /**
      * @param string $pathToFile
