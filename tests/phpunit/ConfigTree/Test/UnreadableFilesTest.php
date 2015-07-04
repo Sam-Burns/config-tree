@@ -1,8 +1,6 @@
 <?php
 namespace ConfigTree\Test\ReadingFiles;
 
-use ConfigTree\FileParsing\ArrayableFileFactory;
-use ConfigTree\FileParsing\Formats\JsonFile;
 use ConfigTree\FileParsing\Reading\FileContentsRetriever;
 use PHPUnit_Framework_TestCase as TestCase;
 
