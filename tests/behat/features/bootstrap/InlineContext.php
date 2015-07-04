@@ -26,7 +26,7 @@ class InlineContext implements Context, SnippetAcceptingContext
      */
     public function iHaveToldTheConfigTreeBuilderToReadTheConfigFile($pathToConfigFile)
     {
-        $this->configTreeBuilder->addSettingsFromPath(__DIR__ . '/../../../fixtures/merging/' . $pathToConfigFile);
+        $this->configTreeBuilder->addSettingsFromPaths([__DIR__ . '/../../../fixtures/merging/' . $pathToConfigFile]);
     }
 
     /**

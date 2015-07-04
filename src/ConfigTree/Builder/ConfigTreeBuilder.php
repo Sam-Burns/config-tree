@@ -22,9 +22,19 @@ class ConfigTreeBuilder
     }
 
     /**
+     * @param string[] $pathsToFiles
+     */
+    public function addSettingsFromPaths($pathsToFiles)
+    {
+        foreach ($pathsToFiles as $pathToFile) {
+            $this->addSettingsFromAPath($pathToFile);
+        }
+    }
+
+    /**
      * @param string $pathToFile
      */
-    public function addSettingsFromPath($pathToFile)
+    private function addSettingsFromAPath($pathToFile)
     {
         $arrayableFile = $this->arrayableFileFactory->getArrayableFileFromPath($pathToFile);
         $fileContentsAsArray = $arrayableFile->toArray();
