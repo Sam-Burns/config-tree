@@ -4,6 +4,7 @@ namespace ConfigTree\Tree;
 use ConfigTree\Exception\ConfigTreeParamNotSet;
 use ConfigTree\Exception\FileNotReadable;
 use ConfigTree\Exception\FileFormatNotParsable;
+use ConfigTree\FileParsing\ArrayableFileFactory;
 
 class ConfigTree
 {
@@ -22,7 +23,7 @@ class ConfigTree
      * @param string $pathToFile
      * @return ConfigTree
      */
-    public static function constructFromFile($pathToFile)
+    public static function constructFromFile($pathToFile, ArrayableFileFactory $arrayableFileFactory = null)
     {
 
     }
