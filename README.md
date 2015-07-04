@@ -3,3 +3,31 @@
 
 Config Tree
 ===========
+
+Description
+-----------
+
+A library for reading config files of various formats, and representing them as config tree objects.
+
+Example of usage
+----------------
+
+```config.json``` file:
+```json
+{
+    "parameters": {
+        "mysql": {
+            "user": "dbuser"
+        }
+    }
+}
+```
+
+```php
+$configBuilder = new \ConfigTree\Builder\ConfigTreeBuilder();
+$configBuilder->addSettingsFromPath('/path/config.json');
+$config = $configBuilder->buildConfigTreeAndReset();
+
+$mysqlUsername = $config->getSettingFromPath('parameters/mysql/user');
+// $mysqlUsername === "dbuser"
+```
