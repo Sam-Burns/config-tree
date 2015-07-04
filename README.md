@@ -1,9 +1,4 @@
-logo
+[![Build Status](https://travis-ci.org/Sam-Burns/config-tree.svg?branch=master)](https://travis-ci.org/Sam-Burns/config-tree)
 
-travis-badge
-coveralls-badge
-
-XXXXXXX
-=======
-
-XXXXXX
+Config Tree
+===========
