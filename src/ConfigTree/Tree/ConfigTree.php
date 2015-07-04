@@ -45,4 +45,15 @@ class ConfigTree
     {
 
     }
+
+    /**
+     * In $configC = $configA->withAnotherConfigTreeMergedIn($configB), duplicate settings in $configB override $configA
+     *
+     * @param ConfigTree $anotherConfigTree
+     * @return ConfigTree
+     */
+    public function withAnotherConfigTreeMergedIn(ConfigTree $anotherConfigTree)
+    {
+
+    }
 }
