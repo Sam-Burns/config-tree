@@ -1,6 +1,10 @@
 <?php
 namespace ConfigTree\Tree;
 
+use ConfigTree\Exception\ConfigTreeParamNotSet;
+use ConfigTree\Exception\FileNotReadable;
+use ConfigTree\Exception\FileFormatNotParsable;
+
 class ConfigTree
 {
     /**
@@ -12,6 +16,9 @@ class ConfigTree
     }
 
     /**
+     * @throws FileNotReadable
+     * @throws FileFormatNotParsable
+     *
      * @param string $pathToFile
      * @return ConfigTree
      */
@@ -29,6 +36,8 @@ class ConfigTree
     }
 
     /**
+     * @throws ConfigTreeParamNotSet
+     *
      * @param string $pathToConfigSettingInTree
      * @return mixed
      */
