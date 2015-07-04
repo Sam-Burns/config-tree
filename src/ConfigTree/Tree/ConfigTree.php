@@ -8,12 +8,15 @@ use ConfigTree\FileParsing\ArrayableFileFactory;
 
 class ConfigTree
 {
+    /** @var array */
+    private $configArray;
+
     /**
      * @param array $configArray
      */
     public function __construct($configArray)
     {
-
+        $this->configArray = $configArray;
     }
 
     /**
@@ -34,7 +37,7 @@ class ConfigTree
      */
     public function toArray()
     {
-
+        return $this->configArray;
     }
 
     /**
@@ -45,7 +48,17 @@ class ConfigTree
      */
     public function getSettingFromPath($pathToConfigSettingInTree)
     {
+        $nodesInPathThroughTree = explode('/', $pathToConfigSettingInTree);
 
+        $configArray = $this->configArray;
+
+        foreach ($nodesInPathThroughTree as $nodeInTree) {
+            if (!isset($configArray[$nodeInTree])) {
+                throw ConfigTreeParamNotSet::constructWithSettingPath($pathToConfigSettingInTree);
+            }
+            $configArray = $configArray[$nodeInTree];
+        }
+        return $configArray;
     }
 
     /**
