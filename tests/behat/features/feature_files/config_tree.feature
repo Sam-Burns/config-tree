@@ -3,7 +3,6 @@ Feature: Generating a config object for an application
   As a developer with some config files
   I want to use the Config Tree Builder to parse config files and merge them into a Config Tree objects
 
-  @wip
   Scenario: Building a config object out of several files
     Given I have a Config Tree Builder
     And I have told the Config Tree Builder to read the config file 'config1.php'
