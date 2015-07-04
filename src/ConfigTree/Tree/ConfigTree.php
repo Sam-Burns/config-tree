@@ -9,14 +9,14 @@ use ConfigTree\FileParsing\ArrayableFileFactory;
 class ConfigTree
 {
     /** @var array */
-    private $configArray;
+    private $rawConfigArray;
 
     /**
      * @param array $configArray
      */
     public function __construct($configArray)
     {
-        $this->configArray = $configArray;
+        $this->rawConfigArray = $configArray;
     }
 
     /**
@@ -37,7 +37,7 @@ class ConfigTree
      */
     public function toArray()
     {
-        return $this->configArray;
+        return $this->rawConfigArray;
     }
 
     /**
@@ -50,7 +50,7 @@ class ConfigTree
     {
         $nodesInPathThroughTree = explode('/', $pathToConfigSettingInTree);
 
-        $configArray = $this->configArray;
+        $configArray = $this->rawConfigArray;
 
         foreach ($nodesInPathThroughTree as $nodeInTree) {
             if (!isset($configArray[$nodeInTree])) {
@@ -69,6 +69,8 @@ class ConfigTree
      */
     public function withAnotherConfigTreeMergedIn(ConfigTree $anotherConfigTree)
     {
-
+        $thisAsArray = $this->rawConfigArray;
+        $otherAsArray = $anotherConfigTree->toArray();
+        return new ConfigTree(array_replace_recursive($thisAsArray, $otherAsArray));
     }
 }
