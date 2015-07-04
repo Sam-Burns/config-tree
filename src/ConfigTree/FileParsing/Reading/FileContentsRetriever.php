@@ -16,5 +16,6 @@ class FileContentsRetriever
         if (!is_readable($path)) {
             throw FileNotReadable::constructWithPath($path);
         }
+        return file_get_contents($path);
     }
 }
