@@ -14,8 +14,6 @@ class ReadingVariousFileFormatTest extends TestCase
      */
     public function testReadingFileContents($filename, $errorMessage)
     {
-        $this->markTestSkipped();
-
         // ARRANGE
         $arrayableFileFactory = new ArrayableFileFactory();
         $arrayableFile = $arrayableFileFactory->getArrayableFileFromPath(
