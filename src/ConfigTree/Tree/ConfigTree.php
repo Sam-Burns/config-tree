@@ -2,9 +2,6 @@
 namespace ConfigTree\Tree;
 
 use ConfigTree\Exception\ConfigTreeParamNotSet;
-use ConfigTree\Exception\FileNotReadable;
-use ConfigTree\Exception\FileFormatNotParsable;
-use ConfigTree\FileParsing\ArrayableFileFactory;
 
 class ConfigTree
 {
@@ -17,19 +14,6 @@ class ConfigTree
     public function __construct($configArray)
     {
         $this->rawConfigArray = $configArray;
-    }
-
-    /**
-     * @throws FileNotReadable
-     * @throws FileFormatNotParsable
-     *
-     * @param string               $pathToFile
-     * @param ArrayableFileFactory $arrayableFileFactory
-     * @return ConfigTree
-     */
-    public static function constructFromFile($pathToFile, ArrayableFileFactory $arrayableFileFactory = null)
-    {
-
     }
 
     /**

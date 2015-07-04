@@ -43,16 +43,16 @@ class InlineContext implements Context, SnippetAcceptingContext
      */
     public function iShouldGetAConfigTreeObjectWhichHasBeenMergedCorrectly()
     {
-        $expectedResult = array(
-            'parameters' => array(
-                'node1' => array(
-                    'node2' => array(
+        $expectedResult = [
+            'parameters' => [
+                'node1' => [
+                    'node2' => [
                         'node3' => 'value3.2',
                         'node4' => 'value4.1',
-                    )
-                )
-            )
-        );
+                    ]
+                ]
+            ]
+        ];
 
         PHPUnit_Framework_Assert::assertEquals(
             $expectedResult,
