@@ -31,3 +31,8 @@ $config = $configBuilder->buildConfigTreeAndReset();
 $mysqlUsername = $config->getSettingFromPath('parameters/mysql/user');
 // $mysqlUsername === "dbuser"
 ```
+
+Or, do stuff like this:
+```php
+$dbConfig = $config->getSubtreeFromPath('parameters/mysql');
+```

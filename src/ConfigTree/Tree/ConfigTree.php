@@ -27,7 +27,7 @@ class ConfigTree
     /**
      * @throws ConfigTreeParamNotSet
      *
-     * @param string $pathToConfigSettingInTree
+     * @param string $pathToConfigSettingInTree  Slash-delimited
      * @return mixed
      */
     public function getSettingFromPath($pathToConfigSettingInTree)
@@ -56,5 +56,20 @@ class ConfigTree
         $thisAsArray = $this->rawConfigArray;
         $otherAsArray = $anotherConfigTree->toArray();
         return new ConfigTree(array_replace_recursive($thisAsArray, $otherAsArray));
+    }
+
+    /**
+     * @throws ConfigTreeParamNotSet
+     *
+     * @param string $pathToSubtree  Slash-delimited
+     * @return ConfigTree
+     */
+    public function getSubtreeFromPath($pathToSubtree)
+    {
+        $settingsAsArray = $this->getSettingFromPath($pathToSubtree);
+        if (!is_array($settingsAsArray)) {
+            throw ConfigTreeParamNotSet::constructWithSettingPath($pathToSubtree);
+        }
+        return new ConfigTree($settingsAsArray);
     }
 }

@@ -13,7 +13,10 @@ class ConfigTreeSpec extends ObjectBehavior
             [
                 'node1' => [
                     'node2' => 'value',
-                    'node3' => 'value'
+                    'node3' => 'value',
+                    'node5' => [
+                        'node6' => 'value'
+                    ]
                 ]
             ]
         );
@@ -30,7 +33,10 @@ class ConfigTreeSpec extends ObjectBehavior
             [
                 'node1' => [
                     'node2' => 'value',
-                    'node3' => 'value'
+                    'node3' => 'value',
+                    'node5' => [
+                        'node6' => 'value'
+                    ]
                 ]
             ]
         );
@@ -62,12 +68,20 @@ class ConfigTreeSpec extends ObjectBehavior
             'node1' => [
                 'node2' => 'value-that-should-override-other',
                 'node3' => 'value',
-                'node4' => 'value-that-should-be-added'
+                'node4' => 'value-that-should-be-added',
+                'node5' => [
+                    'node6' => 'value'
+                ],
             ]
         ];
 
         $anotherConfigTree->toArray()->willReturn($otherConfigAsArray);
 
         $this->withAnotherConfigTreeMergedIn($anotherConfigTree)->shouldBeLike(new ConfigTree($expectedMergeResult));
+    }
+
+    function it_can_return_subtrees()
+    {
+        $this->getSubtreeFromPath('node1/node5')->shouldBeLike(new ConfigTree(['node6' => 'value']));
     }
 }
