@@ -1,9 +1,9 @@
 {
-    "name": "Sam-Burns/config-tree",
+    "name": "sam-burns/config-tree",
 
     "license": "MIT",
 
-    "version": "0.0.1",
+    "version": "0.1.0",
 
     "require": {
         "symfony/yaml": "~2.7.1"
