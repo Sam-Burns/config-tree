@@ -8,10 +8,13 @@ class FileContentsRetriever
     /**
      * @throws FileNotReadable
      *
+     * @param string $path
      * @return string
      */
-    public function fileGetContents()
+    public function fileGetContents($path)
     {
-
+        if (!is_readable($path)) {
+            throw FileNotReadable::constructWithPath($path);
+        }
     }
 }
