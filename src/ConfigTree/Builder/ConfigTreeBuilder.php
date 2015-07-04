@@ -3,6 +3,8 @@ namespace ConfigTree\Builder;
 
 use ConfigTree\Tree\ConfigTree;
 use ConfigTree\FileParsing\ArrayableFileFactory;
+use ConfigTree\Exception\FileFormatNotParsable;
+use ConfigTree\Exception\FileNotReadable;
 
 class ConfigTreeBuilder
 {
@@ -22,19 +24,25 @@ class ConfigTreeBuilder
     }
 
     /**
+     * @throws FileFormatNotParsable
+     * @throws FileNotReadable
+     *
      * @param string[] $pathsToFiles
      */
     public function addSettingsFromPaths($pathsToFiles)
     {
         foreach ($pathsToFiles as $pathToFile) {
-            $this->addSettingsFromAPath($pathToFile);
+            $this->addSettingsFromPath($pathToFile);
         }
     }
 
     /**
+     * @throws FileFormatNotParsable
+     * @throws FileNotReadable
+     *
      * @param string $pathToFile
      */
-    private function addSettingsFromAPath($pathToFile)
+    private function addSettingsFromPath($pathToFile)
     {
         $arrayableFile = $this->arrayableFileFactory->getArrayableFileFromPath($pathToFile);
         $fileContentsAsArray = $arrayableFile->toArray();
