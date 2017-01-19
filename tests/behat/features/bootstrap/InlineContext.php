@@ -1,11 +1,10 @@
 <?php
 
-use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Behat\Context\Context;
 use ConfigTree\Tree\ConfigTree;
 use ConfigTree\Builder\ConfigTreeBuilder;
 
-class InlineContext implements Context, SnippetAcceptingContext
+class InlineContext implements Context
 {
     /** @var ConfigTreeBuilder */
     private $configTreeBuilder;
