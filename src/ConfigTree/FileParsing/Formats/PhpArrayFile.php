@@ -8,18 +8,12 @@ class PhpArrayFile implements ArrayableFile
     /** @var string */
     private $path;
 
-    /**
-     * @param string $path
-     */
-    public function __construct($path)
+    public function __construct(string $path)
     {
         $this->path = $path;
     }
 
-    /**
-     * @return array
-     */
-    public function toArray()
+    public function toArray() : array
     {
         return require $this->path;
     }

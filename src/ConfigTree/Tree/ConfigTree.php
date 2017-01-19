@@ -8,18 +8,12 @@ class ConfigTree
     /** @var array */
     private $rawConfigArray;
 
-    /**
-     * @param array $configArray
-     */
-    public function __construct($configArray)
+    public function __construct(array $configArray)
     {
         $this->rawConfigArray = $configArray;
     }
 
-    /**
-     * @return array
-     */
-    public function toArray()
+    public function toArray() : array
     {
         return $this->rawConfigArray;
     }
@@ -27,10 +21,9 @@ class ConfigTree
     /**
      * @throws ConfigTreeParamNotSet
      *
-     * @param string $pathToConfigSettingInTree  Slash-delimited
      * @return mixed
      */
-    public function getSettingFromPath($pathToConfigSettingInTree)
+    public function getSettingFromPath(string $pathToConfigSettingInTree)
     {
         $nodesInPathThroughTree = explode('/', $pathToConfigSettingInTree);
 
@@ -47,11 +40,8 @@ class ConfigTree
 
     /**
      * In $configC = $configA->withAnotherConfigTreeMergedIn($configB), duplicate settings in $configB override $configA
-     *
-     * @param ConfigTree $anotherConfigTree
-     * @return ConfigTree
      */
-    public function withAnotherConfigTreeMergedIn(ConfigTree $anotherConfigTree)
+    public function withAnotherConfigTreeMergedIn(ConfigTree $anotherConfigTree) : ConfigTree
     {
         $thisAsArray = $this->rawConfigArray;
         $otherAsArray = $anotherConfigTree->toArray();
@@ -60,11 +50,8 @@ class ConfigTree
 
     /**
      * @throws ConfigTreeParamNotSet
-     *
-     * @param string $pathToSubtree  Slash-delimited
-     * @return ConfigTree
      */
-    public function getSubtreeFromPath($pathToSubtree)
+    public function getSubtreeFromPath(string $pathToSubtree) : ConfigTree
     {
         $settingsAsArray = $this->getSettingFromPath($pathToSubtree);
         if (!is_array($settingsAsArray)) {

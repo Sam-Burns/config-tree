@@ -3,11 +3,7 @@ namespace ConfigTree\Exception;
 
 class ConfigTreeParamNotSet extends \RuntimeException
 {
-    /**
-     * @param string $pathToConfigSettingInTree
-     * @return ConfigTreeParamNotSet
-     */
-    public static function constructWithSettingPath($pathToConfigSettingInTree)
+    public static function constructWithSettingPath(string $pathToConfigSettingInTree) : ConfigTreeParamNotSet
     {
         $message = 'Config setting "' . $pathToConfigSettingInTree . '" not set.';
         return new static($message);

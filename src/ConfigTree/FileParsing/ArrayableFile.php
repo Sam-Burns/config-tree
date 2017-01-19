@@ -3,8 +3,5 @@ namespace ConfigTree\FileParsing;
 
 interface ArrayableFile
 {
-    /**
-     * @return array
-     */
-    public function toArray();
+    public function toArray() : array;
 }

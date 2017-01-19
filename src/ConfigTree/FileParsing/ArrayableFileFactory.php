@@ -13,11 +13,8 @@ class ArrayableFileFactory
 {
     /**
      * @throws FileFormatNotParsable
-     *
-     * @param string $pathToFile
-     * @return ArrayableFile
      */
-    public function getArrayableFileFromPath($pathToFile)
+    public function getArrayableFileFromPath(string $pathToFile) : ArrayableFile
     {
         $fileExtension = pathinfo($pathToFile)['extension'];
 
@@ -37,40 +34,24 @@ class ArrayableFileFactory
         }
     }
 
-    /**
-     * @param string $path
-     * @return IniFile
-     */
-    private function buildIniArrayableFile($path)
+    private function buildIniArrayableFile(string $path) : IniFile
     {
         $fileContentsRetriever = new FileContentsRetriever();
         return new IniFile($path, $fileContentsRetriever);
     }
 
-    /**
-     * @param string $path
-     * @return PhpArrayFile
-     */
-    private function buildPhpArrayableFile($path)
+    private function buildPhpArrayableFile(string $path) : PhpArrayFile
     {
         return new PhpArrayFile($path);
     }
 
-    /**
-     * @param string $path
-     * @return JsonFile
-     */
-    private function buildJsonArrayableFile($path)
+    private function buildJsonArrayableFile(string $path) : JsonFile
     {
         $fileContentsRetriever = new FileContentsRetriever();
         return new JsonFile($path, $fileContentsRetriever);
     }
 
-    /**
-     * @param string $path
-     * @return YamlFile
-     */
-    private function buildYamlArrayableFile($path)
+    private function buildYamlArrayableFile(string $path) : YamlFile
     {
         $fileContentsRetriever = new FileContentsRetriever();
         $yamlParser = new YamlParser();

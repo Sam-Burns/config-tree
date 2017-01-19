@@ -14,9 +14,6 @@ class ConfigTreeBuilder
     /** @var ConfigTree */
     private $configTreeToReturn;
 
-    /**
-     * @param ArrayableFileFactory|null $arrayableFileFactory
-     */
     public function __construct(ArrayableFileFactory $arrayableFileFactory = null)
     {
         $this->arrayableFileFactory = $arrayableFileFactory ?: new ArrayableFileFactory();
@@ -29,7 +26,7 @@ class ConfigTreeBuilder
      *
      * @param string[] $pathsToFiles
      */
-    public function addSettingsFromPaths($pathsToFiles)
+    public function addSettingsFromPaths(array $pathsToFiles)
     {
         foreach ($pathsToFiles as $pathToFile) {
             $this->addSettingsFromPath($pathToFile);
@@ -39,10 +36,8 @@ class ConfigTreeBuilder
     /**
      * @throws FileFormatNotParsable
      * @throws FileNotReadable
-     *
-     * @param string $pathToFile
      */
-    private function addSettingsFromPath($pathToFile)
+    private function addSettingsFromPath(string $pathToFile)
     {
         $arrayableFile = $this->arrayableFileFactory->getArrayableFileFromPath($pathToFile);
         $fileContentsAsArray = $arrayableFile->toArray();
@@ -50,10 +45,7 @@ class ConfigTreeBuilder
         $this->configTreeToReturn = $this->configTreeToReturn->withAnotherConfigTreeMergedIn($config);
     }
 
-    /**
-     * @return ConfigTree
-     */
-    public function buildConfigTreeAndReset()
+    public function buildConfigTreeAndReset() : ConfigTree
     {
         $configToReturn = $this->configTreeToReturn;
         $this->configTreeToReturn = new ConfigTree([]);
